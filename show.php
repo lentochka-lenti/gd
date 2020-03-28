@@ -13,7 +13,11 @@ $page_count = $row["C"];
 
 $pagination = "";
 for ($i = 1; $i <= $page_count; $i++) {
-    $pagination .= "<a href='?page=$i'>$i</a>" . "&nbsp;";
+    if($i != $_GET["page"])
+        $pagination .= "<a href='?page=$i'>$i</a>" . "&nbsp;";
+    else
+        $pagination .= "<a href='?page=$i' style='color:red'>$i</a>" . "&nbsp;";
+    
 }
 
 echo $pagination . "<br>";
@@ -26,7 +30,7 @@ $result = mysqli_query(
 );
 
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    echo "<b>" . $row["name"] . ":&nbsp; " . "</b>" . sm(bb_code($row["text"])). "<br>";
+    echo "<b>" . $row["name"] . ":&nbsp; " . "</b>" . sm(bb_code_2(bb_code($row["text"]))). "<br>";
 }
 
 echo $pagination . "<br>";

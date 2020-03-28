@@ -38,9 +38,7 @@ function filter($text)
 }
 
 
-function bb_code_2($text){
-    return preg_replace('~\[color=([^"><]*?)\](.*?)\[/color\]~s','<span style="color:$1;">$2</span>',htmlspecialchars($text,ENT_QUOTES));
-}
-    $defoulttext="[color=red]Текст[/color]";
-    echo "$defoulttext<br>\n";
-    echo bb_code_2($defoulttext);
+//function bb_code_2($text){
+  //  return preg_replace('~\[color=([^"><]*?)\](.*?)\[/color\]~s','<span style="color:$1;">$2</span>',htmlspecialchars($text,ENT_QUOTES));
+//}
+   
