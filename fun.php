@@ -1,5 +1,6 @@
 <?php
 
+
 function sm($text)
 {
     $search = array(
@@ -21,9 +22,19 @@ function sm($text)
 
 function bb_code($text)
 {
-    return preg_replace(
+    $search = array(
         "/\[([biu])\](.*?)\[\/([biu])\]/u",
+        '~\[color=([^"><]*?)\](.*?)\[/color\]~s',
+    );
+
+    $replace = array(
         "<$1>$2</$3>",
+        '<span style="color:$1;">$2</span>',
+    );
+
+    return preg_replace(
+        $search,
+        $replace,
         htmlspecialchars(
             $text,
             ENT_QUOTES

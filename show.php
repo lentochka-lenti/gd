@@ -30,7 +30,7 @@ $result = mysqli_query(
 );
 
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    echo "<b>" . $row["name"] . ":&nbsp; " . "</b>" . sm(bb_code_2(bb_code($row["text"]))). "<br>";
+    echo "<b>" . $row["name"] . ":&nbsp; " . "</b>" . sm(bb_code($row["text"])). "<br>";
 }
 
 echo $pagination . "<br>";
